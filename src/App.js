@@ -1,14 +1,14 @@
 import './App.css';
 import Alert from './components/Alert';
-import About from './components/About';
+//import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import { useState } from 'react';
-import{
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from 'react-router-dom';
+//import{
+  //HashRouter as Router,
+  //Routes,
+  //Route
+//} from 'react-router-dom';
 function App() {
   const [mode, setMode] = useState('light'); //Whether dark mode is enable or not
   const [alert, setAlert] = useState(null);
@@ -46,7 +46,7 @@ function App() {
   };
   return (
      <> 
-   <Router>
+   
    <div style={{
         backgroundColor: bgColor,
         color: mode === "dark" ? "white" : "black",
@@ -58,14 +58,14 @@ function App() {
    <Navbar title="TextUtils" aboutText="About Us" mode={mode} toggleMode={toggleMode} changeColor={changeColor}/>
    <Alert alert={alert}/>
    <div className="container my-3">
-    <Routes>
+    <TextForm heading="Enter the text to analyze" showAlert={showAlert} mode={mode} />
+    {/*<Routes>
             <Route path="/" element={<TextForm heading="Enter the text to analyze" showAlert={showAlert} mode={mode} />} />
             <Route path="/home" element={<TextForm heading="Enter the text to analyze" showAlert={showAlert} mode={mode} />} />
-            <Route path="/about" element={<About />} />
-    </Routes>
+            <Route path="#/about" element={<About />} />
+    </Routes>*/}
    </div>
   </div>
-  </Router>
   </>
   );
 }
